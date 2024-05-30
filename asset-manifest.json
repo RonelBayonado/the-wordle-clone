@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.93e7763f.css",
+    "main.js": "/static/js/main.bd06abe4.js",
+    "static/media/powerUp3.png": "/static/media/powerUp3.15ac79022c5ac53162de.png",
+    "static/media/powerUp2.png": "/static/media/powerUp2.4e14b9eb728954d735ce.png",
+    "index.html": "/index.html",
+    "main.93e7763f.css.map": "/static/css/main.93e7763f.css.map",
+    "main.bd06abe4.js.map": "/static/js/main.bd06abe4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.93e7763f.css",
+    "static/js/main.bd06abe4.js"
+  ]
+}
