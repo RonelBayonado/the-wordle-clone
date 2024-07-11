@@ -79,7 +79,7 @@ export const Game = () => {
       }
     };
     fetchRandomWord();
-  },[])
+  },[wordTileNumber])
  
   useEffect(() => {
     localStorage.setItem('exp', exp);
