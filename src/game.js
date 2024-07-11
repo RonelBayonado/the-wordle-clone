@@ -9,7 +9,6 @@ export const Game = () => {
   const [value, setValue] = useState('');
   const [meaning, setMeaning] = useState('');
   const [word, setWord] = useState([]);
-  const [letterHints, setLetterHints] = useState([]);
   const [submitted, setSubmitted] = useState(false);
   const [submitted2, setSubmitted2] = useState(false);
   const [submitted3, setSubmitted3] = useState(false);
@@ -62,7 +61,7 @@ export const Game = () => {
     if(hintValue1 === hintValue2) {
       setHintValue2(Math.floor(Math.random() * wordTileNumber))
     }
-  },[])
+  },[hintValue1, hintValue2, wordTileNumber])
 
   useEffect(() => {
     // Focus on the first input when the component mounts
@@ -240,7 +239,6 @@ export const Game = () => {
     }
      
     if(timesSubmitted === 0) {
-      setLetterHints(hints);
       setSubmittedWord(word); 
       setSubmitted(true);
       fetchRandomWordMeaning();
