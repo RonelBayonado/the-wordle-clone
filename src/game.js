@@ -204,11 +204,11 @@ export const Game = () => {
     for (let i = 0; i < hints.length; i++) {
       if(hints[i] === 'Exact Place') {
         exact++;
-        setLetterColor(prevLetterColor => [...prevLetterColor, 'Yellow'])
+        setLetterColor(prevLetterColor => [...prevLetterColor, '#fff279'])
       } else if (hints[i] === 'Does not exist') {
         setLetterColor(prevLetterColor => [...prevLetterColor, 'Red'])
       } else if (hints[i] === 'Not Exact Place') {
-        setLetterColor(prevLetterColor => [...prevLetterColor, 'Orange'])
+        setLetterColor(prevLetterColor => [...prevLetterColor, '#ffc93c'])
       }
     }
     if (exact === wordTileNumber) {
@@ -325,6 +325,12 @@ export const Game = () => {
         <h1>Points: {points}</h1>
         <h1>EXP: {exp}</h1>
         <h1 style={{fontSize: '20px'}}>You earn 50 exp every correct guess. Reach {expThreshold} exp to Level up!</h1>
+      </div>
+      <div className="colorInfo">
+        <h1>INFO:</h1>
+        <h1><span style={{color: '#fff279'}}>Green:</span> Letter is present in the word and is in the correct tile.</h1>
+        <h1><span style={{color: '#ffc93c'}}>Orange:</span> Letter is present in the word but is in the incorrect tile. </h1>
+        <h1><span style={{color: 'red'}}>Red:</span> Letter is not present in the word.</h1>
       </div>
       {exp === expThreshold && (
         <div className="powerups modal">
