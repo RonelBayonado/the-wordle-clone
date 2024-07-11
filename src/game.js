@@ -40,7 +40,7 @@ export const Game = () => {
     return savedWordTileNumber ? parseInt(savedWordTileNumber, 10) : 5;
   });
   const [isNextWordVisible, setIsNextWordVisible] = useState(false);
-  const [hintValue1, setHintValue1] = useState(0);
+  const hintValue1 = 0;
   const [hintValue2, setHintValue2] = useState(Math.floor(Math.random() * wordTileNumber));
   const [powerUp2, setPowerUp2] = useState(
     localStorage.getItem('powerUp2') === 'true'
@@ -61,7 +61,7 @@ export const Game = () => {
     if(hintValue1 === hintValue2) {
       setHintValue2(Math.floor(Math.random() * wordTileNumber))
     }
-  },[hintValue1, hintValue2, wordTileNumber])
+  },[hintValue2, wordTileNumber])
 
   useEffect(() => {
     // Focus on the first input when the component mounts
