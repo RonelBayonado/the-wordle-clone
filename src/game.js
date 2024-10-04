@@ -318,119 +318,125 @@ export const Game = () => {
 
   return (
     <div className="container">
-      <div className="info">
-        <h1>HP: {hp}</h1>
-        <h1>Points: {points}</h1>
-        <h1>EXP: {exp}</h1>
-        <h1 style={{fontSize: '20px'}}>You earn 50 exp every correct guess. Reach {expThreshold} exp to Level up!</h1>
+      <div className="infoContainer">
+        <div className="info">
+            <h1>HP: {hp}</h1>
+            <h1>Points: {points}</h1>
+            <h1>EXP: {exp}</h1>
+            <h1 style={{fontSize: '20px'}}>You earn 50 exp every correct guess. Reach {expThreshold} exp to Level up!</h1>
+          </div>
+          <div className="colorInfo">
+            <h1>INFO:</h1>
+            <h1><span style={{color: '#fff279'}}>Green:</span> Letter is present in the word and is in the correct tile.</h1>
+            <h1><span style={{color: '#ffc93c'}}>Orange:</span> Letter is present in the word but is in the incorrect tile. </h1>
+            <h1><span style={{color: 'red'}}>Red:</span> Letter is not present in the word.</h1>
+          </div>
       </div>
-      <div className="colorInfo">
-        <h1>INFO:</h1>
-        <h1><span style={{color: '#fff279'}}>Green:</span> Letter is present in the word and is in the correct tile.</h1>
-        <h1><span style={{color: '#ffc93c'}}>Orange:</span> Letter is present in the word but is in the incorrect tile. </h1>
-        <h1><span style={{color: 'red'}}>Red:</span> Letter is not present in the word.</h1>
-      </div>
-      {exp === expThreshold && (
-        <div className="powerups modal">
-          <div className="powerup">
-            <h1>Power Up 1</h1>
-            <p>Reduce Word Tile by 1</p>
-            <img className="imgPowerUp" src={imgPowerUp1} alt='imgPowerUp1'/>
-            <button onClick={handlePowerUp1}>Pick</button>
+      <div className="gameContainer">
+        {exp === expThreshold && (
+          <div className="powerups modal">
+            <div className="powerup">
+              <h1>Power Up 1</h1>
+              <p>Reduce Word Tile by 1</p>
+              <img className="imgPowerUp" src={imgPowerUp1} alt='imgPowerUp1'/>
+              <button onClick={handlePowerUp1}>Pick</button>
+            </div>
+            <div className="powerup">
+              <h1>Power Up 2</h1>
+              <p>Unlock another hint</p>
+              <img className="imgPowerUp" src={imgPowerUp2} alt='imgPowerUp2'/>
+              <button onClick={handlePowerUp2}>Pick</button>
+            </div>
+            <div className="powerup">
+              <h1>Power Up 3</h1>
+              <p>Increase number of tries by 1</p>
+              <img className="imgPowerUp" src={imgPowerUp3} alt='imgPowerUp2'/>
+              <button onClick={handlePowerUp3}>Pick</button>
+            </div>
           </div>
-          <div className="powerup">
-            <h1>Power Up 2</h1>
-            <p>Unlock another hint</p>
-            <img className="imgPowerUp" src={imgPowerUp2} alt='imgPowerUp2'/>
-            <button onClick={handlePowerUp2}>Pick</button>
-          </div>
-          <div className="powerup">
-            <h1>Power Up 3</h1>
-            <p>Increase number of tries by 1</p>
-            <img className="imgPowerUp" src={imgPowerUp3} alt='imgPowerUp2'/>
-            <button onClick={handlePowerUp3}>Pick</button>
-          </div>
-        </div>
-      )}
-      <h1 className="hint">Tries: {tries} </h1>
-      <div className="hintsContainer">
-        <h1 className="hint">{meaning ? `Hint: ${meaning}` : `1st Letter Hint: ${value[hintValue1]}`}</h1>
-        {powerUp2 && (
-           <h1 className="hint">{meaning ? `` : `2nd Letter Hint: ${value[hintValue2]}`}</h1>
         )}
-      </div>    
-      <h1 className="guess-the-word">Guess the word:</h1>
-      {submitted && (
-        <div className="word-container">
-            {submittedWord.map((letter, index) => {
-              return <h1 key={index} className="result" style={{color: letterColor[index]}}>{letter}</h1>
-            })}
+        <h1 className="hint">Tries: {tries} </h1>
+        <div className="hintsContainer">
+          <h1 className="hint">{meaning ? `Hint: ${meaning}` : `1st Letter Hint: ${value[hintValue1]}`}</h1>
+          {powerUp2 && (
+            <h1 className="hint">{meaning ? `` : `2nd Letter Hint: ${value[hintValue2]}`}</h1>
+          )}
+        </div>    
+        <h1 className="guess-the-word">Guess the word:</h1>
+        {submitted && (
+          <div className="word-container">
+              {submittedWord.map((letter, index) => {
+                return <h1 key={index} className="result" style={{color: letterColor[index]}}>{letter}</h1>
+              })}
+          </div>
+      )}
+      {submitted2 && (
+          <div className="word-container">
+              {submittedWord2.map((letter, index) => {
+                return <h1 key={index} className="result"  style={{color: letterColor[index + wordTileNumber]}}>{letter}</h1>
+              })}
+          </div>
+      )}
+      {submitted3 && (
+          <div className="word-container">
+              {submittedWord3.map((letter, index) => {
+                return <h1 key={index} className="result"  style={{color: letterColor[index + (wordTileNumber * 2)]}}>{letter}</h1>
+              })}
+          </div>
+      )}
+      {submitted4 && (
+          <div className="word-container">
+              {submittedWord4.map((letter, index) => {
+                return <h1 key={index} className="result"  style={{color: letterColor[index + (wordTileNumber * 3)]}}>{letter}</h1>
+              })}
+          </div>
+      )}
+      {submitted5 && (
+          <div className="word-container">
+              {submittedWord5.map((letter, index) => {
+                return <h1 key={index} className="result"  style={{color: letterColor[index + (wordTileNumber * 4)]}}>{letter}</h1>
+              })}
+          </div>
+      )}
+        <div className="box-container">
+          {[...Array(wordTileNumber)].map((_, index) => (
+            <input 
+              ref={(el) => (inputRefs.current[index] = el)} 
+              onChange={(event) => handleInputChange(index, event)} 
+              onKeyDown={(event) => handleKeyDown(index, event)} 
+              id="input-box" 
+              type="text"
+              maxLength={1}
+            >
+            </input>
+          ))}
         </div>
-     )}
-     {submitted2 && (
-        <div className="word-container">
-            {submittedWord2.map((letter, index) => {
-              return <h1 key={index} className="result"  style={{color: letterColor[index + wordTileNumber]}}>{letter}</h1>
-            })}
-        </div>
-     )}
-     {submitted3 && (
-        <div className="word-container">
-            {submittedWord3.map((letter, index) => {
-              return <h1 key={index} className="result"  style={{color: letterColor[index + (wordTileNumber * 2)]}}>{letter}</h1>
-            })}
-        </div>
-     )}
-     {submitted4 && (
-        <div className="word-container">
-            {submittedWord4.map((letter, index) => {
-              return <h1 key={index} className="result"  style={{color: letterColor[index + (wordTileNumber * 3)]}}>{letter}</h1>
-            })}
-        </div>
-     )}
-     {submitted5 && (
-        <div className="word-container">
-            {submittedWord5.map((letter, index) => {
-              return <h1 key={index} className="result"  style={{color: letterColor[index + (wordTileNumber * 4)]}}>{letter}</h1>
-            })}
-        </div>
-     )}
-      <div className="box-container">
-        {[...Array(wordTileNumber)].map((_, index) => (
-          <input 
-            ref={(el) => (inputRefs.current[index] = el)} 
-            onChange={(event) => handleInputChange(index, event)} 
-            onKeyDown={(event) => handleKeyDown(index, event)} 
-            id="input-box" 
-            type="text"
-            maxLength={1}
-          >
-          </input>
-        ))}
+        {isSubmitVisible && (
+          <button className="button submit" onClick={handleSubmit}>Submit</button>
+        )}
+        {isNextWordVisible && isWordGuessed && (
+          <button className="button submit" onClick={handleNext}>Next</button>
+        )}
+        {isNextWordVisible && isWordGuessed === false && hp !== 0 && (
+          <button className="button submit" onClick={handleRetry}>Retry</button>
+        )}
+        {hp === 0 && (
+          <>
+            <div class="modal-overlay"></div>
+            <div className="game-over modal"> 
+                <h1>GAME OVER NA BORDS</h1>
+                <h1>Score: {points}</h1>
+                <button className="button" onClick={handleGameOver}>BALIK SUGOD BORDS</button>
+            </div>
+          </>       
+        )}
+        {isWordGuessed && (
+          <h1 className="win-or-lose">Chamba rana bords</h1>
+        )}  
+        {isWordGuessed === false && (
+          <h1 className="win-or-lose">The Word is: {value} </h1>
+        )}  
       </div>
-      {isSubmitVisible && (
-        <button className="button submit" onClick={handleSubmit}>Submit</button>
-      )}
-      {isNextWordVisible && isWordGuessed && (
-        <button className="button submit" onClick={handleNext}>Next</button>
-      )}
-      {isNextWordVisible && isWordGuessed === false && hp !== 0 && (
-        <button className="button submit" onClick={handleRetry}>Retry</button>
-      )}
-      {hp === 0 && (
-        <div className="game-over modal"> 
-            <h1>GAME OVER NA BORDS</h1>
-            <h1>Score: {points}</h1>
-            <button className="button" onClick={handleGameOver}>BALIK SUGOD BORDS</button>
-        </div>
-      )}
-      {isWordGuessed && (
-        <h1 className="win-or-lose">Chamba rana bords</h1>
-      )}  
-      {isWordGuessed === false && (
-        <h1 className="win-or-lose">Bruh... Ang word kay '{value}' </h1>
-      )}  
-
     </div>
   )
 } 

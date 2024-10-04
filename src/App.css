@@ -1,22 +1,22 @@
+html {
+  background-color: rgb(27, 16, 16);
+}
+
 *{
   padding: 0;
   margin: 0;
 }
 .App {
-  height: 100vh;
-  background-color: rgb(27, 16, 16);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
 }
 
 .welcomeContainer {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  width: 75%;
   align-items: center;
   justify-content: center;
-  align-items: space-between;
+  text-align: center;
 }
 
 @keyframes dance {
@@ -99,6 +99,7 @@
 }
 
 .container {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -120,37 +121,57 @@
 
 .win-or-lose {
   font-size: 5em;
+  text-align: center;
   font-family: 'Courier New', Courier, monospace;
   color: orange;
 }
 
-.info {
-  position: absolute;
-  bottom: 35%;
-  left: 83%;
+.infoContainer {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   border: 5px solid orange;
-  color: white;
   border-radius: 20px;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  width: 250px;
-  padding-left: 20px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-right: 20px;
 }
 
 .colorInfo {
-  position: absolute;
-  bottom: 38%;
-  right: 82%;
+  display: flex;
+  flex-direction: column;
   color: white;
-  width: 300px;
   font-size: 10px;
 }
 
 .colorInfo h1 {
   margin-bottom: 10px;
+}
+
+.gameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(10px);
+  z-index: 1; 
 }
 
 .modal {
@@ -237,8 +258,69 @@
 
 .hintsContainer {
   display: flex;
+  justify-content: center;
   flex-direction: row;
   margin-bottom: 60px;
   margin-top: 25px;
   width: 80%;
+}
+
+
+@media screen and (max-width: 768px) {
+  .welcomeContainer {
+    font-size: 10px;
+  }
+  #input-box {
+    width: 7vh;
+    height: 7vh;
+    font-size: 30px;
+  }
+  .infoContainer {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .result {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;;
+    color: white;
+    margin-bottom: 20px;
+    margin-right: 30px;
+    margin-left: 43px;
+  }
+  .hintsContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    width: 100%;
+  }
+  .hint{
+    font-size: 1.5em;
+  }
+  .guess-the-word {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  .button {
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 8px 15px;
+  }
+  .game-over {
+    height: 25%;
+    width: 80%;
+    flex-direction: column;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1263px) {
+  .game-over {
+    height: 35%;
+    width: 60%;
+    flex-direction: column;
+    font-size: 30px;
+  }
 }
