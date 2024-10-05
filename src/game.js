@@ -127,7 +127,7 @@ export const Game = () => {
   };
 
   const handleInputChange = (index, event) => {
-    const inputValue = event.target.value;
+    const inputValue = event.target.value.toLowerCase();
     const updatedWord = [...word];
 
     if(index >= 0 && index < inputRefs.current.length) {
