@@ -271,8 +271,8 @@ html {
     font-size: 10px;
   }
   #input-box {
-    width: 7vh;
-    height: 7vh;
+    width: 6vh;
+    height: 6vh;
     font-size: 30px;
   }
   .infoContainer {
@@ -285,15 +285,15 @@ html {
     font-family: 'Courier New', Courier, monospace;;
     color: white;
     margin-bottom: 20px;
-    margin-right: 30px;
-    margin-left: 43px;
+    margin-right: 22px;
+    margin-left: 38px;
   }
   .hintsContainer {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
     margin-top: 20px;
-    width: 100%;
+    width: 90%;
   }
   .hint{
     font-size: 1.5em;
