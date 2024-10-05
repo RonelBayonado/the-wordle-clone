@@ -270,6 +270,22 @@ html {
   .welcomeContainer {
     font-size: 10px;
   }
+  .powerup {
+    height: 95%;
+    width: 30%;
+  }
+  .powerups {
+    text-align: center;
+    height: 35%;
+    width: 95%;
+  }
+  .powerup button {
+    font-size: 1em;
+    font-weight: bold;
+    padding: 5px 20px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
   #input-box {
     width: 6vh;
     height: 6vh;

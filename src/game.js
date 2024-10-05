@@ -334,26 +334,29 @@ export const Game = () => {
       </div>
       <div className="gameContainer">
         {exp === expThreshold && (
-          <div className="powerups modal">
-            <div className="powerup">
-              <h1>Power Up 1</h1>
-              <p>Reduce Word Tile by 1</p>
-              <img className="imgPowerUp" src={imgPowerUp1} alt='imgPowerUp1'/>
-              <button onClick={handlePowerUp1}>Pick</button>
+          <>
+            <div class="modal-overlay"></div>
+            <div className="powerups modal">
+              <div className="powerup">
+                <h1>Power Up 1</h1>
+                <p>Reduce Word Tile by 1</p>
+                <img className="imgPowerUp" src={imgPowerUp1} alt='imgPowerUp1'/>
+                <button onClick={handlePowerUp1}>Pick</button>
+              </div>
+              <div className="powerup">
+                <h1>Power Up 2</h1>
+                <p>Unlock another hint</p>
+                <img className="imgPowerUp" src={imgPowerUp2} alt='imgPowerUp2'/>
+                <button onClick={handlePowerUp2}>Pick</button>
+              </div>
+              <div className="powerup">
+                <h1>Power Up 3</h1>
+                <p>Increase number of tries by 1</p>
+                <img className="imgPowerUp" src={imgPowerUp3} alt='imgPowerUp2'/>
+                <button onClick={handlePowerUp3}>Pick</button>
+              </div>
             </div>
-            <div className="powerup">
-              <h1>Power Up 2</h1>
-              <p>Unlock another hint</p>
-              <img className="imgPowerUp" src={imgPowerUp2} alt='imgPowerUp2'/>
-              <button onClick={handlePowerUp2}>Pick</button>
-            </div>
-            <div className="powerup">
-              <h1>Power Up 3</h1>
-              <p>Increase number of tries by 1</p>
-              <img className="imgPowerUp" src={imgPowerUp3} alt='imgPowerUp2'/>
-              <button onClick={handlePowerUp3}>Pick</button>
-            </div>
-          </div>
+          </>      
         )}
         <h1 className="hint">Tries: {tries} </h1>
         <div className="hintsContainer">
